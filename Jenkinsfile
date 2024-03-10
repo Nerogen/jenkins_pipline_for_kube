@@ -27,10 +27,9 @@ pipeline {
 
         stage('Deploy') {
           steps {
-          withAWS(region:'us-east-1',credentials:'aws-creds')
-                {
-                    sh 'kubectl apply -f deployment.yaml'
-                }
+
+             sh 'kubectl apply --validate=false -f deployment.yaml'
+
           }
         }
 
