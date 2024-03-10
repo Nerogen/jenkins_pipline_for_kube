@@ -26,6 +26,9 @@ pipeline {
         }
 
         stage('Deploy') {
+        agent {
+                label 'master'
+            }
           steps {
             sh 'kubectl apply -f deployment.yaml'
           }
