@@ -5,7 +5,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                sh 'docker run build -t danwhite123/nginx-image:latest -f Dockerfile_nginx .'
+                sh 'docker build -t danwhite123/nginx-image:latest -f Dockerfile_nginx .'
             }
         }
 
