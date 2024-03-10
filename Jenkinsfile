@@ -26,11 +26,11 @@ pipeline {
         }
 
         stage('Deploy') {
-        agent {
-                label 'master'
-            }
           steps {
-            sh 'kubectl apply -f deployment.yaml'
+          withAWS(region:'us-east-1',credentials:'aws-creds')
+                {
+                    sh 'kubectl apply -f deployment.yaml'
+                }
           }
         }
 
